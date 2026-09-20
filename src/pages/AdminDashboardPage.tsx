@@ -86,7 +86,7 @@ export const AdminDashboardPage: React.FC = () => {
               <ShieldCheck className="w-3.5 h-3.5" /> Admin Control Center
             </span>
             <span className="text-[10px] bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 font-mono px-2 py-0.5 rounded">
-              Demo Environment
+              Active System
             </span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -103,7 +103,7 @@ export const AdminDashboardPage: React.FC = () => {
             className="px-3.5 py-2 bg-gray-100 dark:bg-slate-800 hover:bg-gray-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-xl text-xs transition-colors flex items-center gap-1.5 shadow-2xs cursor-pointer"
             title="Reset reports database to original seed state"
           >
-            <RotateCcw className="w-3.5 h-3.5 text-gray-500" /> Reset Demo Data
+            <RotateCcw className="w-3.5 h-3.5 text-gray-500" /> Reset Sample Data
           </button>
         </div>
       </div>

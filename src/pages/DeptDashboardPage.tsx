@@ -74,7 +74,7 @@ export const DeptDashboardPage: React.FC = () => {
               <Building2 className="w-3.5 h-3.5" /> Department Officer Portal
             </span>
             <span className="text-[10px] bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 font-mono px-2 py-0.5 rounded">
-              Demo Environment
+              Department Operations
             </span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">
@@ -96,7 +96,7 @@ export const DeptDashboardPage: React.FC = () => {
             onChange={(e) => setSelectedDeptFilter(e.target.value)}
             className="bg-white dark:bg-slate-800 border border-amber-300 dark:border-amber-800 rounded-lg px-2.5 py-1 text-xs font-medium text-slate-800 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-amber-500 cursor-pointer"
           >
-            <option value="ALL">ALL DEPARTMENTS (Demo View)</option>
+            <option value="ALL">ALL DEPARTMENTS</option>
             {ALL_DEPARTMENTS.map((dept) => (
               <option key={dept} value={dept}>
                 {dept}

@@ -121,9 +121,9 @@ export const StatusUpdateModal: React.FC<StatusUpdateModalProps> = ({
           <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900/40 rounded-xl p-3 text-xs text-blue-800 dark:text-blue-300 flex items-start gap-2">
             <Clock className="w-4 h-4 shrink-0 text-blue-600 dark:text-blue-400 mt-0.5" />
             <div>
-              <p className="font-semibold mb-0.5">Demo Workflow Simulation</p>
+              <p className="font-semibold mb-0.5">Real-time Timeline Updates</p>
               <p className="text-[11px] text-blue-700 dark:text-blue-400">
-                Updating status will automatically reflect across Citizen, Admin, and Department views via LocalStorage.
+                Updating status will automatically update the tracking timeline for citizen, admin, and department views.
               </p>
             </div>
           </div>

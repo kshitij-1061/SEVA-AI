@@ -51,7 +51,7 @@ export const CivicMapPage: React.FC = () => {
         <div className="hidden sm:flex items-center gap-2 text-xs text-slate-500 bg-white p-3 rounded-2xl border border-slate-200 shadow-2xs">
           <ShieldCheck className="w-5 h-5 text-teal-600 shrink-0" />
           <div>
-            <div className="font-bold text-slate-800">Demo Civic GIS</div>
+            <div className="font-bold text-slate-800">Civic GIS Mapping</div>
             <span className="text-[10px]">OpenStreetMap Tile Layer</span>
           </div>
         </div>
