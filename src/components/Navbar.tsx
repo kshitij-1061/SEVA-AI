@@ -34,7 +34,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
       { name: "Home", path: "/", icon: Home },
       { name: "✨ SevaAI", path: "/ai", icon: MessageSquareCode },
       { name: "Report Issue", path: "/report-issue", icon: PlusCircle },
-      { name: "Find Services", path: "/services", icon: Search },
+      { name: "Government Schemes", path: "/services", icon: Search },
       { name: "Civic Map", path: "/map", icon: Map },
       { name: "Impact & Analytics", path: "/impact", icon: BarChart2 },
     ];
