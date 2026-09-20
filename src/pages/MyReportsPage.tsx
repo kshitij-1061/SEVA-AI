@@ -52,10 +52,7 @@ export const MyReportsPage: React.FC = () => {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs font-bold bg-teal-50 text-teal-700 dark:bg-teal-900/40 dark:text-teal-300 px-2.5 py-0.5 rounded-full border border-teal-200 dark:border-teal-800 flex items-center gap-1">
-              <FileText className="w-3.5 h-3.5" /> Citizen Tracker (Module 7)
-            </span>
-            <span className="text-[10px] bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 font-mono px-2 py-0.5 rounded">
-              Demo Environment
+              <FileText className="w-3.5 h-3.5" /> Citizen Complaint Tracker
             </span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 dark:text-white tracking-tight">

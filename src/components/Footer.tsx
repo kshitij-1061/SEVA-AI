@@ -18,9 +18,9 @@ export const Footer: React.FC = () => {
           <p className="text-[11px] leading-relaxed text-slate-400">
             AI-powered civic issue reporting and public service discovery platform empowering citizens and local authorities.
           </p>
-          <div className="flex items-center gap-1.5 text-[10px] text-amber-400 bg-slate-800/80 p-2 rounded-lg border border-slate-700">
+          <div className="flex items-center gap-1.5 text-[10px] text-teal-400 bg-slate-800/80 p-2 rounded-lg border border-slate-700">
             <Sparkles className="w-3.5 h-3.5 shrink-0" />
-            <span>Built for Hackathon Demo & Prototype Presentation</span>
+            <span>AI-Powered Civic & Public Assistance Platform</span>
           </div>
         </div>
 
@@ -50,12 +50,12 @@ export const Footer: React.FC = () => {
 
         <div>
           <h4 className="font-bold text-white uppercase text-[10px] tracking-wider mb-3">
-            Demo Credentials
+            System Accounts
           </h4>
           <div className="bg-slate-800 p-3 rounded-xl border border-slate-700 text-[10px] space-y-1.5">
-            <div><strong className="text-teal-300">Citizen:</strong> citizen@sevafix.demo</div>
-            <div><strong className="text-indigo-300">Admin:</strong> admin@sevafix.demo</div>
-            <div><strong className="text-amber-300">Officer:</strong> officer@sevafix.demo</div>
+            <div><strong className="text-teal-300">Citizen Account:</strong> citizen@sevafix.demo</div>
+            <div><strong className="text-indigo-300">Admin Account:</strong> admin@sevafix.demo</div>
+            <div><strong className="text-amber-300">Officer Account:</strong> officer@sevafix.demo</div>
           </div>
         </div>
       </div>
@@ -64,7 +64,7 @@ export const Footer: React.FC = () => {
         <p>© 2026 SevaFix Platform. Built with AI & Civic Technology.</p>
         <div className="flex items-center gap-1 text-slate-500">
           <Shield className="w-3.5 h-3.5 text-teal-400" />
-          <span>Simulated Authentication & Demo Environment</span>
+          <span>Secure Platform Authentication</span>
         </div>
       </div>
     </footer>

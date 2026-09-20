@@ -46,7 +46,7 @@ export const ImageAnalyzerPage: React.FC = () => {
       {/* Top Banner Notice */}
       <div className="bg-gradient-to-r from-teal-950 via-slate-900 to-slate-950 p-6 rounded-3xl text-white shadow-xl space-y-3 border border-teal-800">
         <div className="inline-flex items-center gap-2 bg-teal-500/20 text-teal-300 px-3 py-1 rounded-full text-xs font-semibold border border-teal-500/30">
-          <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Module 4: Vision & Visual Evidence
+          <Sparkles className="w-3.5 h-3.5 text-amber-300" /> Vision & Visual Evidence Analyzer
         </div>
         <h1 className="text-2xl font-bold tracking-tight">AI Vision & Evidence Analyzer</h1>
         <p className="text-xs text-slate-300 max-w-2xl">

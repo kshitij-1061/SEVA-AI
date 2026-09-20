@@ -72,7 +72,7 @@ export const ProfilePage: React.FC = () => {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs font-bold bg-teal-50 text-teal-700 px-2 py-0.5 rounded border border-teal-200">
-              Module 1: Account
+              User Account & Roles
             </span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 tracking-tight">User Profile & Account</h1>
@@ -272,7 +272,7 @@ export const ProfilePage: React.FC = () => {
               <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-4 rounded-xl shadow-xs space-y-2 mt-4">
                 <div className="flex items-center justify-between">
                   <span className="font-bold text-xs flex items-center gap-1.5 text-teal-300">
-                    <Sparkles className="w-3.5 h-3.5" /> Hackathon Demo Role Tester
+                    <Sparkles className="w-3.5 h-3.5" /> Workspace Role Selector
                   </span>
                   <span className="text-[10px] text-slate-400">Instant Switch</span>
                 </div>

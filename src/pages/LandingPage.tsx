@@ -166,16 +166,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onOpenAuth }) => {
         </div>
       </section>
 
-      {/* Module 1 Demo Launcher Banner */}
+      {/* Role Access Banner */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-gradient-to-r from-teal-600 via-teal-700 to-emerald-700 rounded-3xl p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 bg-white/20 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-              <ShieldCheck className="w-3.5 h-3.5 text-amber-300" /> Module 1 Ready
+              <ShieldCheck className="w-3.5 h-3.5 text-amber-300" /> Multi-Role Platform Access
             </div>
             <h3 className="text-2xl font-bold">Ready to test authentication & role switching?</h3>
             <p className="text-xs text-teal-100 max-w-xl">
-              Log in with demo credentials or switch roles instantly between Citizen, Administrator, and Department Officer.
+              Log in with credentials or switch roles instantly between Citizen, Administrator, and Department Officer.
             </p>
           </div>
 
@@ -192,7 +192,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onOpenAuth }) => {
                 onClick={() => onOpenAuth("login")}
                 className="px-6 py-3 bg-white text-teal-900 font-bold rounded-xl text-xs shadow-md hover:bg-slate-100 transition-all"
               >
-                Sign In Demo Session
+                Sign In to Account
               </button>
             )}
           </div>
