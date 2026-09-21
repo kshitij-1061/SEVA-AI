@@ -10,13 +10,12 @@ import {
   Edit2,
   Save,
   X,
-  Sparkles,
   Info,
   CheckCircle2,
 } from "lucide-react";
 
 export const ProfilePage: React.FC = () => {
-  const { user, updateProfile, switchDemoRole } = useAuth();
+  const { user, updateProfile } = useAuth();
   const [isEditing, setIsEditing] = useState(false);
   const [savedSuccess, setSavedSuccess] = useState(false);
 
@@ -261,55 +260,11 @@ export const ProfilePage: React.FC = () => {
                 </div>
 
                 <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-100">
-                  <span className="text-[11px] text-slate-400 font-medium block">Active Demo Role</span>
+                  <span className="text-[11px] text-slate-400 font-medium block">Assigned Account Role</span>
                   <div className="font-semibold text-slate-800 flex items-center gap-1.5 mt-1">
                     <ShieldCheck className="w-3.5 h-3.5 text-teal-600 shrink-0" />
                     <span>{roleLabel}</span>
                   </div>
-                </div>
-              </div>
-
-              <div className="bg-gradient-to-r from-slate-900 to-slate-800 text-white p-4 rounded-xl shadow-xs space-y-2 mt-4">
-                <div className="flex items-center justify-between">
-                  <span className="font-bold text-xs flex items-center gap-1.5 text-teal-300">
-                    <Sparkles className="w-3.5 h-3.5" /> Workspace Role Selector
-                  </span>
-                  <span className="text-[10px] text-slate-400">Instant Switch</span>
-                </div>
-                <p className="text-[11px] text-slate-300">
-                  Switch roles to experience SevaFix from different perspectives:
-                </p>
-                <div className="flex flex-wrap gap-2 pt-1">
-                  <button
-                    onClick={() => switchDemoRole("citizen")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                      user.role === "citizen"
-                        ? "bg-teal-600 text-white border-teal-500"
-                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                    }`}
-                  >
-                    Citizen
-                  </button>
-                  <button
-                    onClick={() => switchDemoRole("admin")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                      user.role === "admin"
-                        ? "bg-indigo-600 text-white border-indigo-500"
-                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                    }`}
-                  >
-                    Administrator
-                  </button>
-                  <button
-                    onClick={() => switchDemoRole("department")}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-semibold border transition-all ${
-                      user.role === "department"
-                        ? "bg-amber-600 text-white border-amber-500"
-                        : "bg-slate-800 text-slate-300 border-slate-700 hover:bg-slate-700"
-                    }`}
-                  >
-                    Department Officer
-                  </button>
                 </div>
               </div>
             </div>

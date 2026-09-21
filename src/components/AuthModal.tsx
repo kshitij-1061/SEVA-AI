@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { DEMO_CREDENTIALS } from "../data/seedUsers";
 import {
@@ -26,7 +27,8 @@ export const AuthModal: React.FC<AuthModalProps> = ({
   onClose,
   initialMode = "login",
 }) => {
-  const { login, register, isLoading } = useAuth();
+  const { user, login, register, isLoading } = useAuth();
+  const navigate = useNavigate();
   const [mode, setMode] = useState<"login" | "register">(initialMode);
 
   // Login form state
@@ -61,6 +63,16 @@ export const AuthModal: React.FC<AuthModalProps> = ({
 
   if (!isOpen) return null;
 
+  const handlePostAuthNavigate = (role?: string) => {
+    if (role === "admin") {
+      navigate("/admin");
+    } else if (role === "department") {
+      navigate("/department");
+    } else {
+      navigate("/my-reports");
+    }
+  };
+
   const handleLoginSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoginError(null);
@@ -73,8 +85,12 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     const success = await login(loginEmail, loginPassword);
     if (success) {
       onClose();
+      const matchedCred = DEMO_CREDENTIALS.find(
+        (c) => c.email.toLowerCase() === loginEmail.trim().toLowerCase()
+      );
+      handlePostAuthNavigate(matchedCred?.user.role || user?.role);
     } else {
-      setLoginError("Invalid credentials. Try using one of the Quick Demo Account buttons below!");
+      setLoginError("Invalid credentials. Please check your email and password.");
     }
   };
 
@@ -85,6 +101,10 @@ export const AuthModal: React.FC<AuthModalProps> = ({
     const success = await login(email, pass);
     if (success) {
       onClose();
+      const matchedCred = DEMO_CREDENTIALS.find(
+        (c) => c.email.toLowerCase() === email.toLowerCase()
+      );
+      handlePostAuthNavigate(matchedCred?.user.role);
     }
   };
 

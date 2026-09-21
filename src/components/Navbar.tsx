@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import { CurrentUserRole } from "./CurrentUserRole";
 import {
   Sparkles,
   LogOut,
@@ -30,32 +31,31 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
   const role = user?.role || "citizen";
 
   const getNavItems = () => {
-    const basePublic = [
-      { name: "Home", path: "/", icon: Home },
-      { name: "✨ SevaAI", path: "/ai", icon: MessageSquareCode },
-      { name: "Report Issue", path: "/report-issue", icon: PlusCircle },
-      { name: "Government Schemes", path: "/services", icon: Search },
-      { name: "Civic Map", path: "/map", icon: Map },
-      { name: "Impact & Analytics", path: "/impact", icon: BarChart2 },
-    ];
-
     if (role === "admin") {
       return [
-        ...basePublic,
-        { name: "Admin Portal", path: "/admin", icon: ShieldCheck },
+        { name: "Dashboard", path: "/admin", icon: ShieldCheck },
+        { name: "Civic Map", path: "/map", icon: Map },
+        { name: "Impact & Analytics", path: "/impact", icon: BarChart2 },
       ];
     }
 
     if (role === "department") {
       return [
-        ...basePublic,
-        { name: "Department Portal", path: "/department", icon: Building2 },
+        { name: "Dashboard", path: "/department", icon: Building2 },
+        { name: "Civic Map", path: "/map", icon: Map },
+        { name: "Impact & Analytics", path: "/impact", icon: BarChart2 },
       ];
     }
 
+    // Citizen or Unauthenticated View
     return [
-      ...basePublic,
+      { name: "Home", path: "/", icon: Home },
+      { name: "✨ SevaAI", path: "/ai", icon: MessageSquareCode },
+      { name: "Report Issue", path: "/report-issue", icon: PlusCircle },
       { name: "My Reports", path: "/my-reports", icon: FileText },
+      { name: "Government Schemes", path: "/services", icon: Search },
+      { name: "Civic Map", path: "/map", icon: Map },
+      { name: "Impact & Analytics", path: "/impact", icon: BarChart2 },
     ];
   };
 
@@ -123,30 +123,24 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenAuth }) => {
           <div className="hidden sm:flex items-center gap-3">
             {isAuthenticated && user ? (
               <div className="flex items-center gap-3">
+                <CurrentUserRole />
                 <Link
                   to="/profile"
-                  className="flex items-center gap-2.5 p-1.5 pr-3 rounded-full hover:bg-slate-100 transition-colors border border-slate-200"
+                  className="flex items-center gap-2 p-1.5 pr-3 rounded-full hover:bg-slate-100 transition-colors border border-slate-200"
                 >
                   <img
                     src={user.avatar || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150"}
                     alt={user.name}
                     className="w-7 h-7 rounded-full object-cover border border-slate-300"
                   />
-                  <div className="flex flex-col text-left">
-                    <span className="text-xs font-semibold text-slate-800 leading-tight">
-                      {user.name}
-                    </span>
-                    <span
-                      className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full border inline-block ${badge.bg}`}
-                    >
-                      {badge.label}
-                    </span>
-                  </div>
+                  <span className="text-xs font-semibold text-slate-800 leading-tight">
+                    {user.name}
+                  </span>
                 </Link>
 
                 <button
                   onClick={handleLogout}
-                  className="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors"
+                  className="p-2 text-slate-500 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition-colors cursor-pointer"
                   title="Sign Out"
                 >
                   <LogOut className="w-4 h-4" />

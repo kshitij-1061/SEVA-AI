@@ -7,7 +7,6 @@ import { VisionProvider } from "./context/VisionContext";
 import { ServiceProvider } from "./context/ServiceContext";
 import { MapProvider } from "./context/MapContext";
 import { DemoBanner } from "./components/DemoBanner";
-import { DemoRoleSwitcher } from "./components/DemoRoleSwitcher";
 import { Navbar } from "./components/Navbar";
 import { AuthModal } from "./components/AuthModal";
 import { ToastNotification } from "./components/ToastNotification";
@@ -40,9 +39,8 @@ export const AppContent: React.FC = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-teal-500 selection:text-white font-sans">
-      {/* Top Hackathon Notices & Quick Role Switcher */}
+      {/* Top Header Notices */}
       <DemoBanner />
-      <DemoRoleSwitcher />
 
       {/* Main Navigation */}
       <Navbar onOpenAuth={handleOpenAuth} />
@@ -103,7 +101,7 @@ export const AppContent: React.FC = () => {
           <Route
             path="/department"
             element={
-              <ProtectedRoute allowedRoles={["department", "admin"]}>
+              <ProtectedRoute allowedRoles={["department"]}>
                 <DeptDashboardPage />
               </ProtectedRoute>
             }

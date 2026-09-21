@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
-import type { User, UserRole, RegisterFormData, AuthState } from "../types";
+import type { User, RegisterFormData, AuthState } from "../types";
 import { SEED_USERS, DEMO_CREDENTIALS } from "../data/seedUsers";
 
 interface AuthContextValue extends AuthState {
@@ -7,7 +7,6 @@ interface AuthContextValue extends AuthState {
   register: (data: RegisterFormData) => Promise<boolean>;
   logout: () => void;
   updateProfile: (updates: Partial<User>) => void;
-  switchDemoRole: (role: UserRole) => void;
   toast: string | null;
   setToast: (msg: string | null) => void;
 }
@@ -37,7 +36,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setUser(parsedUser);
       }
     } catch (err) {
-      console.error("Failed to restore demo authentication session:", err);
+      console.error("Failed to restore authentication session:", err);
       localStorage.removeItem(STORAGE_KEY_AUTH_USER);
     } finally {
       setIsLoading(false);
@@ -50,7 +49,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       const customUsers: User[] = customUsersJson ? JSON.parse(customUsersJson) : [];
       return [...SEED_USERS, ...customUsers];
     } catch (err) {
-      console.error("Failed to read demo users from storage:", err);
+      console.error("Failed to read user storage:", err);
       return SEED_USERS;
     }
   };
@@ -102,7 +101,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     }
 
     const newUser: User = {
-      id: `user-demo-${Date.now()}`,
+      id: `user-${Date.now()}`,
       name: data.name.trim(),
       email: normalizedEmail,
       phone: data.phone?.trim() || "+91 98765 00000",
@@ -123,7 +122,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsLoading(false);
       return true;
     } catch (err) {
-      console.error("Failed to register demo user:", err);
+      console.error("Failed to register user:", err);
       setIsLoading(false);
       return false;
     }
@@ -132,7 +131,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const logout = () => {
     localStorage.removeItem(STORAGE_KEY_AUTH_USER);
     setUser(null);
-    setToast("You have been logged out of the demo session.");
+    setToast("You have been signed out successfully.");
   };
 
   const updateProfile = (updates: Partial<User>) => {
@@ -141,29 +140,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setUser(updatedUser);
     localStorage.setItem(STORAGE_KEY_AUTH_USER, JSON.stringify(updatedUser));
     setToast("Profile updated successfully!");
-  };
-
-  const switchDemoRole = (targetRole: UserRole) => {
-    if (!user) {
-      const seedTarget = SEED_USERS.find((u) => u.role === targetRole) || SEED_USERS[0];
-      setUser(seedTarget);
-      localStorage.setItem(STORAGE_KEY_AUTH_USER, JSON.stringify(seedTarget));
-      setToast(`Switched demo role to ${targetRole.toUpperCase()}`);
-      return;
-    }
-
-    const updatedUser: User = {
-      ...user,
-      role: targetRole,
-      department:
-        targetRole === "department"
-          ? user.department || "Roads & Infrastructure"
-          : user.department,
-    };
-
-    setUser(updatedUser);
-    localStorage.setItem(STORAGE_KEY_AUTH_USER, JSON.stringify(updatedUser));
-    setToast(`Role switched to ${targetRole === "admin" ? "Administrator" : targetRole === "department" ? "Department Officer" : "Citizen"}`);
   };
 
   return (
@@ -176,7 +152,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         register,
         logout,
         updateProfile,
-        switchDemoRole,
         toast,
         setToast,
       }}
